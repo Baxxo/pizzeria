@@ -12,6 +12,8 @@ import org.eclipse.swt.widgets.Label;
 public class Pizzeria {
 
 	protected Shell shell;
+	protected Shell dialog;
+	List list;
 
 	/**
 	 * Launch the application.
@@ -41,7 +43,6 @@ public class Pizzeria {
 		}
 	}
 	
-	Shell dialog;
 
 	/**
 	 * Create contents of the window.
@@ -71,17 +72,21 @@ public class Pizzeria {
 			public void widgetSelected(SelectionEvent e) {
 				c1.start();
 				
-				dialog = new Shell(shell);
+				dialog = new Shell();
 			    dialog.setText("Cliente");
 			    dialog.setSize(200, 200);
-			    dialog.open();
+			    dialog.open();			    
+
+				Label lblLabelpizza = new Label(dialog, SWT.NONE);
+				lblLabelpizza.setBounds(80, 43, 55, 15);
+				lblLabelpizza.setText("caio");
 			    
 			}
 		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 		
-		List list = new List(shell, SWT.BORDER);
+		list = new List(shell, SWT.BORDER);
 		list.setBounds(10, 112, 145, 203);
 		list.setItems(lp.pizze);
 		
@@ -97,7 +102,7 @@ public class Pizzeria {
 		Label label_1 = new Label(shell, SWT.SEPARATOR);
 		label_1.setBounds(418, 112, 2, 203);
 		
-		Label labelPizza = new Label(dialog,SWT.SEPARATOR);
+		
 		
 		
 

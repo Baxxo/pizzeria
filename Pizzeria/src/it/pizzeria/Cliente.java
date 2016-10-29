@@ -16,12 +16,12 @@ public class Cliente extends Thread {
 		n = (int) (Math.random() * 4 + 1);
 		System.out.println("pizza: " + lp.pizze[n]);
 		lp.pizzedaFare.add(lp.pizze[n]);
-		try {
+		/*try {
 			wait();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
