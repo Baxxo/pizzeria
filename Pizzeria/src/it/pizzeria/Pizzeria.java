@@ -40,6 +40,8 @@ public class Pizzeria {
 			}
 		}
 	}
+	
+	Shell dialog;
 
 	/**
 	 * Create contents of the window.
@@ -51,22 +53,42 @@ public class Pizzeria {
 		
 		ListaPizze lp = new ListaPizze();
 		Pizzaiolo p = new Pizzaiolo(lp);
+		Cliente c1 = new Cliente();
+		
 		
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				p.start();
 			}
 		});
 		btnAvviaPizzeria.setBounds(10, 10, 75, 25);
 		btnAvviaPizzeria.setText("Avvia Pizzeria");
 		
 		Button btnNuovoCliente = new Button(shell, SWT.NONE);
+		btnNuovoCliente.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				c1.start();
+				
+				dialog = new Shell(shell);
+			    dialog.setText("Cliente");
+			    dialog.setSize(200, 200);
+			    dialog.open();
+			    
+			    
+			    
+			    
+				
+			}
+		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 		
 		List list = new List(shell, SWT.BORDER);
 		list.setBounds(10, 112, 145, 203);
+		list.setItems(lp.pizze);
 		
 		List list_1 = new List(shell, SWT.BORDER);
 		list_1.setBounds(233, 112, 145, 203);
@@ -79,6 +101,10 @@ public class Pizzeria {
 		
 		Label label_1 = new Label(shell, SWT.SEPARATOR);
 		label_1.setBounds(418, 112, 2, 203);
+		
+		Label labelPizza = new Label(dialog,SWT.SEPARATOR);
+		
+		
 
 	}
 }
