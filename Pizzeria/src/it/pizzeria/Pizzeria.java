@@ -6,6 +6,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Label;
 
 public class Pizzeria {
 
@@ -44,7 +46,7 @@ public class Pizzeria {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(450, 300);
+		shell.setSize(632, 463);
 		shell.setText("SWT Application");
 		
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
@@ -53,12 +55,27 @@ public class Pizzeria {
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnAvviaPizzeria.setBounds(10, 62, 75, 25);
+		btnAvviaPizzeria.setBounds(10, 10, 75, 25);
 		btnAvviaPizzeria.setText("Avvia Pizzeria");
 		
 		Button btnNuovoCliente = new Button(shell, SWT.NONE);
-		btnNuovoCliente.setBounds(257, 62, 88, 25);
+		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
+		
+		List list = new List(shell, SWT.BORDER);
+		list.setBounds(10, 112, 145, 203);
+		
+		List list_1 = new List(shell, SWT.BORDER);
+		list_1.setBounds(233, 112, 145, 203);
+		
+		List list_2 = new List(shell, SWT.BORDER);
+		list_2.setBounds(461, 112, 145, 203);
+		
+		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label.setBounds(186, 112, 2, 203);
+		
+		Label label_1 = new Label(shell, SWT.SEPARATOR);
+		label_1.setBounds(418, 112, 2, 203);
 
 	}
 }
