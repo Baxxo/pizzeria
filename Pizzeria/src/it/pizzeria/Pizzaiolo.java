@@ -17,6 +17,9 @@ public class Pizzaiolo extends Thread{
 		if (lp.pizzedaFare.isEmpty() == false) {
 			pizza = lp.pizzedaFare.get(0);
 		}
+		
+		System.out.println(pizza);
+		
 		switch (pizza) {
 		case "Margherita":
 			n = 1000;
@@ -30,20 +33,20 @@ public class Pizzaiolo extends Thread{
 		case "Wurstel":
 			n = 1500;
 			break;
-		}
-		
+		}	
+		// fa la pizza ( aspetta tot secondi)
+
 		try {
 			Thread.sleep(n);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
-			
-			
-		// fa la pizza ( aspetta tot secondi)
-
+		
 		// avvisa la lsita pizze che la pizza è pronta
+		
+		notifyAll();
+		
 	}
 
 }

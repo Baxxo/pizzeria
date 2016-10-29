@@ -53,8 +53,7 @@ public class Pizzeria {
 		
 		ListaPizze lp = new ListaPizze();
 		Pizzaiolo p = new Pizzaiolo(lp);
-		Cliente c1 = new Cliente();
-		
+		Cliente c1 = new Cliente(lp);
 		
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
@@ -77,10 +76,6 @@ public class Pizzeria {
 			    dialog.setSize(200, 200);
 			    dialog.open();
 			    
-			    
-			    
-			    
-				
 			}
 		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
