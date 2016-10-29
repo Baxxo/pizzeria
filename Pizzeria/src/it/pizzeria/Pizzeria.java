@@ -49,6 +49,9 @@ public class Pizzeria {
 		shell.setSize(632, 463);
 		shell.setText("SWT Application");
 		
+		ListaPizze lp = new ListaPizze();
+		Pizzaiolo p = new Pizzaiolo(lp);
+		
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override

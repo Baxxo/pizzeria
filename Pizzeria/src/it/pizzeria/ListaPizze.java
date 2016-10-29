@@ -9,4 +9,5 @@ public class ListaPizze {
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
 	// elenco pizze pronte
 	ArrayList<String> pizzePronte = new ArrayList<String>();
+	
 }
