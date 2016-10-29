@@ -51,17 +51,24 @@ public class Pizzeria {
 		
 		ListaPizze lp = new ListaPizze();
 		Pizzaiolo p = new Pizzaiolo(lp);
+		Cliente c1 = new Cliente(lp);
 		
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				p.start();
 			}
 		});
 		btnAvviaPizzeria.setBounds(10, 10, 75, 25);
 		btnAvviaPizzeria.setText("Avvia Pizzeria");
 		
 		Button btnNuovoCliente = new Button(shell, SWT.NONE);
+		btnNuovoCliente.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 		
