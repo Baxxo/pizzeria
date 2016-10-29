@@ -1,6 +1,6 @@
 package it.pizzeria;
 
-public class Pizzaiolo implements Runnable {
+public class Pizzaiolo extends Thread{
 
 	ListaPizze lp;
 	String pizza;

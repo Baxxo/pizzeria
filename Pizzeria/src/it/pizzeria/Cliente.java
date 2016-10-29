@@ -1,6 +1,6 @@
 package it.pizzeria;
 
-public class Cliente implements Runnable {
+public class Cliente extends Thread{
 
 	@Override
 	public void run() {
