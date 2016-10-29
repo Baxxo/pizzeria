@@ -3,7 +3,7 @@ package it.pizzeria;
 import java.util.ArrayList;
 
 public class ListaPizze {
-	public static String pizze[] = {"margherita","asdsaas","adasdasdas"};
+	public static String pizze[] = {"Margherita","Capricciosa","4 Formaggi" , "Wurstel"};
 	
 	// elenco pizze da fare
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
