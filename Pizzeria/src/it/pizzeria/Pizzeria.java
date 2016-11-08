@@ -60,7 +60,8 @@ public class Pizzeria {
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				p.start();
+				int pizzCur = list.getSelectionIndex();
+				p.run(lp.getPizza(pizzCur));
 			}
 		});
 		btnAvviaPizzeria.setBounds(10, 10, 75, 25);

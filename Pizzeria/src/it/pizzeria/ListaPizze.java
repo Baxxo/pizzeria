@@ -10,4 +10,7 @@ public class ListaPizze {
 	// elenco pizze pronte
 	ArrayList<String> pizzePronte = new ArrayList<String>();
 	
+	public String getPizza(int n){
+		return pizze[n];
+	}
 }

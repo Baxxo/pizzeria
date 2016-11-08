@@ -10,13 +10,14 @@ public class Pizzaiolo extends Thread{
 		this.lp = lp;
 	}
 
-	@Override
-	public void run() {
+	public void run(String nome) {
 		// TODO Auto-generated method stub
 		// verifica se c'è una pzza da fare
 		if (lp.pizzedaFare.isEmpty() == false) {
 			pizza = lp.pizzedaFare.get(0);
 		}
+		
+		pizza = nome;
 		
 		System.out.println(pizza);
 		
