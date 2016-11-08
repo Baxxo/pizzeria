@@ -36,7 +36,7 @@ public class Pizzaiolo extends Thread{
 			break;
 		}	
 		// fa la pizza ( aspetta tot secondi)
-
+/*
 		try {
 			Thread.sleep(n);
 		} catch (InterruptedException e) {
@@ -46,7 +46,7 @@ public class Pizzaiolo extends Thread{
 		
 		// avvisa la lsita pizze che la pizza è pronta
 		
-		notifyAll();
+		notifyAll();*/
 		
 	}
 
