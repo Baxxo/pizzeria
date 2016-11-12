@@ -10,7 +10,7 @@ public class Pizzaiolo extends Thread {
 		this.lp = lp;
 	}
 
-	public synchronized void run(String nome) {
+	public void run(String nome) {
 		// TODO Auto-generated method stub
 		// verifica se c'è una pzza da fare
 		if (lp.pizzedaFare.isEmpty() == false) {

@@ -76,6 +76,19 @@ public class Pizzeria {
 
 		lblLabelpizza = new Label(dialog, SWT.NONE);
 		lblLabelpizza.setBounds(80, 43, 55, 15);
+		
+		List list_1 = new List(shell, SWT.BORDER);
+		list_1.setBounds(233, 112, 145, 203);
+
+		List list_2 = new List(shell, SWT.BORDER);
+		list_2.setBounds(461, 112, 145, 203);
+
+		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		label.setBounds(186, 112, 2, 203);
+
+		Label label_1 = new Label(shell, SWT.SEPARATOR);
+		label_1.setBounds(418, 112, 2, 203);
+		
 
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
@@ -111,24 +124,16 @@ public class Pizzeria {
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
 				messageBox.setMessage(lp.getPizza(pizzCur));
 				messageBox.open();
+				list_1.add(lp.getPizza(pizzCur));
 				c1.setPizza(lp.getPizza(pizzCur),pizzCur);
 				c1.start();
+				
 
 			}
 		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 
-		List list_1 = new List(shell, SWT.BORDER);
-		list_1.setBounds(233, 112, 145, 203);
-
-		List list_2 = new List(shell, SWT.BORDER);
-		list_2.setBounds(461, 112, 145, 203);
-
-		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label.setBounds(186, 112, 2, 203);
-
-		Label label_1 = new Label(shell, SWT.SEPARATOR);
-		label_1.setBounds(418, 112, 2, 203);
+		
 	}
 }
