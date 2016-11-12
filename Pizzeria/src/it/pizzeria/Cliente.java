@@ -11,7 +11,7 @@ public class Cliente extends Thread {
 	}
 
 	@Override
-	public void run() {
+	public synchronized void run() {
 		// TODO Auto-generated method stub
 		n = (int) (Math.random() * 4 + 1);
 		System.out.println("pizza: " + lp.pizze[n]);

@@ -101,10 +101,12 @@ public class Pizzeria {
 		btnNuovoCliente.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				
+				int pizzCur = list.getSelectionIndex();
+				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
+				messageBox.setMessage(lp.getPizza(pizzCur));
+				messageBox.open();
 				c1.start();
-
-				dialog.open();
-				lblLabelpizza.setText("caio");
 
 			}
 		});
@@ -126,6 +128,5 @@ public class Pizzeria {
 
 		Label label_1 = new Label(shell, SWT.SEPARATOR);
 		label_1.setBounds(418, 112, 2, 203);
-
 	}
 }
