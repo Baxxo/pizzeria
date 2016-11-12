@@ -18,6 +18,7 @@ public class Pizzeria {
 	List list;
 	Label lblNewLabel;
 	Label lblLabelpizza;
+	public String pi[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
 
 	/**
 	 * Launch the application.
@@ -68,8 +69,8 @@ public class Pizzeria {
 		Pizzaiolo p = new Pizzaiolo(lp);
 
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 112, 145, 203);
-		list.setItems(lp.pizze);
+		list.setBounds(10, 112, 145, 203);		
+		list.setItems(pi);
 
 		lblNewLabel = new Label(pizza, SWT.NONE);
 		lblNewLabel.setBounds(0, 50, 200, 200);
@@ -101,12 +102,14 @@ public class Pizzeria {
 					messageBox.setText("pizza");
 					messageBox.setMessage("nessuna pizza");
 					messageBox.open();
-					p.run("nessuna pizza");
+					p.setPizza("nessuna pizza");
+					p.start();
 				} else {
 					messageBox.setText("pizza");
 					messageBox.setMessage(lp.getPizza(pizzCur));
 					messageBox.open();
-					p.run(lp.getPizza(pizzCur));
+					p.setPizza(lp.getPizza(pizzCur));
+					p.start();
 				}
 			}
 		});
@@ -124,8 +127,10 @@ public class Pizzeria {
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
 				messageBox.setMessage(lp.getPizza(pizzCur));
 				messageBox.open();
-				list_1.add(lp.getPizza(pizzCur));
-				c1.setPizza(lp.getPizza(pizzCur),pizzCur);
+				
+				//list_1.add(lp.getPizza(pizzCur));
+				
+				c1.setPizza(lp.getPizza(pizzCur), pizzCur);
 				c1.start();
 				
 

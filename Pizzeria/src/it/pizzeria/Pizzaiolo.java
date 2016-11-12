@@ -9,15 +9,19 @@ public class Pizzaiolo extends Thread {
 	public Pizzaiolo(ListaPizze lp) {
 		this.lp = lp;
 	}
+	
+	public void setPizza(String nome){
+		pizza = nome;
+	}
 
-	public void run(String nome) {
+
+	public void run() {
+
 		// TODO Auto-generated method stub
 		// verifica se c'è una pzza da fare
 		if (lp.pizzedaFare.isEmpty() == false) {
 			pizza = lp.pizzedaFare.get(0);
 		}
-
-		pizza = nome;
 
 		System.out.println(pizza);
 

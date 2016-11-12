@@ -18,8 +18,9 @@ public class Cliente extends Thread {
 
 	@Override
 	public synchronized void run() {
-		System.out.println("pizza: " + lp.pizze[n]);
-		lp.pizzedaFare.add(lp.pizze[n]);
+		//System.out.println("pizza: " + lp.pizze[n]);
+		//lp.addPzzafare(pizza);
+		//lp.pizzedaFare.add(lp.pizze[n]);
 		/*
 		 * try { wait(); } catch (InterruptedException e) { // TODO
 		 * Auto-generated catch block e.printStackTrace(); }

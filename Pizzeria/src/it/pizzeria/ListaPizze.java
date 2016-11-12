@@ -3,7 +3,7 @@ package it.pizzeria;
 import java.util.ArrayList;
 
 public class ListaPizze {
-	public static String pizze[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
+	
 
 	int n = 1;
 
@@ -13,6 +13,10 @@ public class ListaPizze {
 	ArrayList<String> pizzePronte = new ArrayList<String>();
 
 	public String getPizza(int n) {
-		return pizze[n];
+		return "";// pizze[n];
+	}
+	
+	public synchronized void addPzzafare(String pizza){
+		pizzedaFare.add(pizza);
 	}
 }
