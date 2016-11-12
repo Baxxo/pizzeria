@@ -3,25 +3,27 @@ package it.pizzeria;
 public class Cliente extends Thread {
 
 	int n;
+	String pizza;
 	ListaPizze lp;
 
 	public Cliente(ListaPizze lp) {
-		// TODO Auto-generated constructor stub
 		this.lp = lp;
+	}
+
+	public void setPizza(String pizza, int n) {
+		this.pizza = pizza;
+		this.n = n;
+
 	}
 
 	@Override
 	public synchronized void run() {
-		// TODO Auto-generated method stub
-		n = (int) (Math.random() * 4+1);
-		System.out.println("pizza: " + lp.getPizza(n));
+		System.out.println("pizza: " + lp.pizze[n]);
 		lp.pizzedaFare.add(lp.pizze[n]);
-		/*try {
-			wait();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		/*
+		 * try { wait(); } catch (InterruptedException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 	}
 
 }
