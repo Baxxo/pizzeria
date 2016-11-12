@@ -15,4 +15,8 @@ public class ListaPizze {
 	public String getPizza(int n) {
 		return pizze[n];
 	}
+	
+	public synchronized void addPzzafare(String pizza){
+		pizzedaFare.add(pizza);
+	}
 }
