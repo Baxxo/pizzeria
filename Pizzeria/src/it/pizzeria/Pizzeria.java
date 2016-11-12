@@ -88,12 +88,14 @@ public class Pizzeria {
 					messageBox.setText("pizza");
 					messageBox.setMessage("nessuna pizza");
 					messageBox.open();
-					p.run("nessuna pizza");
+					p.setPizza("nessuna pizza");
+					p.start();
 				} else {
 					messageBox.setText("pizza");
 					messageBox.setMessage(lp.getPizza(pizzCur));
 					messageBox.open();
-					p.run(lp.getPizza(pizzCur));
+					p.setPizza(lp.getPizza(pizzCur));
+					p.start();
 				}
 			}
 		});
