@@ -15,10 +15,18 @@ public class Pizzeria {
 	protected Shell shell;
 	protected Shell dialog;
 	protected Shell pizza;
-	List list;
+	public List list;
+	public List list_1;
+	public List list_2;
 	Label lblNewLabel;
 	Label lblLabelpizza;
-	public String pi[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
+	public String pizze[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
+	Cliente[] c = new Cliente[100];
+	public int cur = 0;
+	ListaPizze lp = new ListaPizze();
+	Pizzaiolo p = new Pizzaiolo(lp);
+	Pizzaiolo p2 = new Pizzaiolo(lp);
+	int pizzCur;
 
 	/**
 	 * Launch the application.
@@ -41,6 +49,7 @@ public class Pizzeria {
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
+		p.start();
 		shell.layout();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
@@ -65,23 +74,21 @@ public class Pizzeria {
 		dialog.setText("Cliente");
 		dialog.setSize(200, 200);
 
-		ListaPizze lp = new ListaPizze();
-		Pizzaiolo p = new Pizzaiolo(lp);
 
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 112, 145, 203);		
-		list.setItems(pi);
+		list.setBounds(10, 112, 145, 203);
+		list.setItems(pizze);
 
 		lblNewLabel = new Label(pizza, SWT.NONE);
 		lblNewLabel.setBounds(0, 50, 200, 200);
 
 		lblLabelpizza = new Label(dialog, SWT.NONE);
 		lblLabelpizza.setBounds(80, 43, 55, 15);
-		
-		List list_1 = new List(shell, SWT.BORDER);
+
+		list_1 = new List(shell, SWT.BORDER);
 		list_1.setBounds(233, 112, 145, 203);
 
-		List list_2 = new List(shell, SWT.BORDER);
+		list_2 = new List(shell, SWT.BORDER);
 		list_2.setBounds(461, 112, 145, 203);
 
 		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
@@ -89,49 +96,36 @@ public class Pizzeria {
 
 		Label label_1 = new Label(shell, SWT.SEPARATOR);
 		label_1.setBounds(418, 112, 2, 203);
-		
 
 		Button btnAvviaPizzeria = new Button(shell, SWT.NONE);
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
-
 				int pizzCur = list.getSelectionIndex();
-				if (pizzCur < 0) {
-					messageBox.setText("pizza");
-					messageBox.setMessage("nessuna pizza");
-					messageBox.open();
-					p.setPizza("nessuna pizza");
-					p.start();
-				} else {
-					messageBox.setText("pizza");
-					messageBox.setMessage(lp.getPizza(pizzCur));
-					messageBox.open();
-					p.setPizza(lp.getPizza(pizzCur));
-					p.start();
-				}
 			}
 		});
 
-		btnAvviaPizzeria.setBounds(10, 10, 75, 25);
-		btnAvviaPizzeria.setText("Avvia Pizzeria");
+		btnAvviaPizzeria.setBounds(10, 10, 109, 25);
+		btnAvviaPizzeria.setText("Assumi pizzaiolo");
 
 		Button btnNuovoCliente = new Button(shell, SWT.NONE);
 		btnNuovoCliente.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				Cliente c1 = new Cliente(lp);
-				int pizzCur = list.getSelectionIndex();
+				c[cur] = new Cliente(lp);
+				pizzCur = list.getSelectionIndex();
+
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
-				messageBox.setMessage(lp.getPizza(pizzCur));
+				messageBox.setMessage(pizze[pizzCur]);
 				messageBox.open();
-				
-				//list_1.add(lp.getPizza(pizzCur));
-				
-				c1.setPizza(lp.getPizza(pizzCur), pizzCur);
-				c1.start();
+
+				list_1.add(pizze[pizzCur]);
+
+				c[cur].setPizza(pizze[pizzCur]);
+				c[cur].start();
+				cur++;
 				
 
 			}
@@ -139,6 +133,5 @@ public class Pizzeria {
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 
-		
 	}
 }

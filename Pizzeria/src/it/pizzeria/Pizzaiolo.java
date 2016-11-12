@@ -9,48 +9,27 @@ public class Pizzaiolo extends Thread {
 	public Pizzaiolo(ListaPizze lp) {
 		this.lp = lp;
 	}
-	
-	public void setPizza(String nome){
+
+	public void setPizza(String nome) {
 		pizza = nome;
 	}
 
-
 	public void run() {
 
-		// TODO Auto-generated method stub
-		// verifica se c'è una pzza da fare
-		if (lp.pizzedaFare.isEmpty() == false) {
-			pizza = lp.pizzedaFare.get(0);
+		// verifica se c'è pizza da fare
+		while (true) {
+			if (lp.pizzedaFare.isEmpty() == false) {
+				lp.faiPizza();
+			} else {
+				// System.out.println("sto aspettando");
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
-
-		System.out.println(pizza);
-
-		switch (pizza) {
-		case "Margherita":
-			n = 1000;
-			break;
-		case "Capricciosa":
-			n = 2500;
-			break;
-		case "4 Formaggi":
-			n = 2000;
-			break;
-		case "Wurstel":
-			n = 1500;
-			break;
-		}
-		// fa la pizza ( aspetta tot secondi)
-
-		try {
-			Thread.sleep(n);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// avvisa la lsita pizze che la pizza è pronta
-
-		notifyAll();
 
 	}
 

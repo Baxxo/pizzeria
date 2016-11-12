@@ -10,17 +10,18 @@ public class Cliente extends Thread {
 		this.lp = lp;
 	}
 
-	public void setPizza(String pizza, int n) {
+	public void setPizza(String pizza) {
 		this.pizza = pizza;
-		this.n = n;
 
 	}
 
 	@Override
-	public synchronized void run() {
-		//System.out.println("pizza: " + lp.pizze[n]);
-		//lp.addPzzafare(pizza);
-		//lp.pizzedaFare.add(lp.pizze[n]);
+	public void run() {
+
+		lp.addPzzafare(pizza);
+
+		// System.out.println("pizza: " + lp.pizze[n]);
+		// lp.pizzedaFare.add(lp.pizze[n]);
 		/*
 		 * try { wait(); } catch (InterruptedException e) { // TODO
 		 * Auto-generated catch block e.printStackTrace(); }
