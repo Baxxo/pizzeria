@@ -18,6 +18,7 @@ public class Pizzeria {
 	List list;
 	Label lblNewLabel;
 	Label lblLabelpizza;
+	
 
 	/**
 	 * Launch the application.
@@ -66,7 +67,7 @@ public class Pizzeria {
 
 		ListaPizze lp = new ListaPizze();
 		Pizzaiolo p = new Pizzaiolo(lp);
-		Cliente c1 = new Cliente(lp);
+		
 
 		lblNewLabel = new Label(pizza, SWT.NONE);
 		lblNewLabel.setBounds(0, 50, 200, 200);
@@ -94,6 +95,8 @@ public class Pizzeria {
 				}
 			}
 		});
+		
+	
 		btnAvviaPizzeria.setBounds(10, 10, 75, 25);
 		btnAvviaPizzeria.setText("Avvia Pizzeria");
 
@@ -102,11 +105,13 @@ public class Pizzeria {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
+				Cliente c1 = new Cliente(lp);
 				int pizzCur = list.getSelectionIndex();
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
 				messageBox.setMessage(lp.getPizza(pizzCur));
 				messageBox.open();
 				c1.start();
+				
 
 			}
 		});

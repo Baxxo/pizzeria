@@ -13,8 +13,8 @@ public class Cliente extends Thread {
 	@Override
 	public synchronized void run() {
 		// TODO Auto-generated method stub
-		n = (int) (Math.random() * 4 + 1);
-		System.out.println("pizza: " + lp.pizze[n]);
+		n = (int) (Math.random() * 4+1);
+		System.out.println("pizza: " + lp.getPizza(n));
 		lp.pizzedaFare.add(lp.pizze[n]);
 		/*try {
 			wait();
