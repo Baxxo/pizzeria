@@ -7,7 +7,7 @@ public class ListaPizze {
 	Pizzeria p;
 	int n;
 	int index;
-
+	
 	// elenco pizze da fare
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
 	// elenco pizze pronte
@@ -21,7 +21,7 @@ public class ListaPizze {
 
 	}
 
-	public synchronized void addPzzafare(String pizza) {
+	public synchronized void addPizzafare(String pizza) {
 		pizzedaFare.add(pizza);
 		System.out.println("pizza: " + pizza);
 		notifyAll();
@@ -30,10 +30,10 @@ public class ListaPizze {
 
 	public synchronized void faiPizza() {
 		index = pizzePronte.size();
-		/*
-		 * System.out.println("faccio pizza");
-		 * System.out.println(pizzedaFare.get(0));
-		 */
+		if(pizzedaFare.size() == 0)
+			return;
+		System.out.println("faccio pizza");
+		System.out.println(pizzedaFare.get(0));
 
 		switch (pizzedaFare.get(0)) {
 		case "Margherita":
@@ -57,9 +57,8 @@ public class ListaPizze {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// avvisa la lsita pizze che la pizza è pronta
-		System.out.println("ho finito 1 una pizza");
 
+		System.out.println("ho finito 1 una pizza");
 		pizzePronte.add(pizzedaFare.get(0));
 		pizzedaFare.remove(0);
 

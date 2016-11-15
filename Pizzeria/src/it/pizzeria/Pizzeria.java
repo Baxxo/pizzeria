@@ -58,7 +58,7 @@ public class Pizzeria {
 			}
 		}
 	}
-
+	
 	/**
 	 * Create contents of the window.
 	 */
