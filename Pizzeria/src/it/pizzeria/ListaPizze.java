@@ -7,7 +7,7 @@ public class ListaPizze {
 	Pizzeria p;
 	int n;
 	int index;
-	
+
 	// elenco pizze da fare
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
 	// elenco pizze pronte
@@ -30,7 +30,7 @@ public class ListaPizze {
 
 	public synchronized void faiPizza() {
 		index = pizzePronte.size();
-		if(pizzedaFare.size() == 0)
+		if (pizzedaFare.size() == 0)
 			return;
 		System.out.println("faccio pizza");
 		System.out.println(pizzedaFare.get(0));
@@ -50,6 +50,12 @@ public class ListaPizze {
 			break;
 		}
 		p.forno(pizzedaFare.get(0));
+		if (Thread.currentThread().getName().equals("primo")) {
+			p.updateBar(n);
+		}
+		if (Thread.currentThread().getName().equals("sec")) {
+			p.updateBar2(n);
+		}
 
 		// fa la pizza ( aspetta tot secondi)
 		try {
