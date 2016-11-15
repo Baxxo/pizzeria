@@ -10,6 +10,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 public class Pizzeria {
 
@@ -30,6 +31,8 @@ public class Pizzeria {
 	int pizzCur;
 	Display display;
 	Label forno;
+	String nome;
+	private Text text;
 
 	/**
 	 * Launch the application.
@@ -146,7 +149,13 @@ public class Pizzeria {
 				c[cur] = new Cliente(lp);
 				pizzCur = list.getSelectionIndex();
 
+				if(text.getText().equals("")){
+					nome = "billo";
+				}else{
+					nome = text.getText();	
+				}
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
+				messageBox.setText(nome);
 				messageBox.setMessage(pizze[pizzCur]);
 				messageBox.open();
 
@@ -179,6 +188,15 @@ public class Pizzeria {
 		Label lblPizzePronte = new Label(shell, SWT.NONE);
 		lblPizzePronte.setBounds(494, 101, 72, 15);
 		lblPizzePronte.setText("Pizze pronte");
+		
+		Label lblCliente = new Label(shell, SWT.NONE);
+		lblCliente.setAlignment(SWT.CENTER);
+		lblCliente.setBounds(213, 15, 42, 21);
+		lblCliente.setText("Cliente:");
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setText("");
+		text.setBounds(265, 12, 111, 21);
 
 	}
 }
