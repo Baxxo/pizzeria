@@ -20,12 +20,7 @@ public class Cliente extends Thread {
 
 		lp.addPizzafare(pizza);
 
-		// System.out.println("pizza: " + lp.pizze[n]);
-		// lp.pizzedaFare.add(lp.pizze[n]);
-		/*
-		 * try { wait(); } catch (InterruptedException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
+		
 	}
 
 }

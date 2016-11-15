@@ -21,7 +21,6 @@ public class Pizzaiolo extends Thread {
 			if (lp.pizzedaFare.isEmpty() == false) {
 				lp.faiPizza();
 			} else {
-				// System.out.println("sto aspettando");
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {

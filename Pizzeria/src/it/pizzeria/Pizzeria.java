@@ -4,6 +4,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.LineBackgroundListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.List;
@@ -23,9 +24,9 @@ public class Pizzeria {
 	public String pizze[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
 	Cliente[] c = new Cliente[100];
 	public int cur = 0;
-	ListaPizze lp ;
-	Pizzaiolo p = new Pizzaiolo(lp);
-	Pizzaiolo p2 = new Pizzaiolo(lp);
+	ListaPizze lp;
+	Pizzaiolo p;
+	Pizzaiolo p2;
 	int pizzCur;
 	Display display;
 
@@ -50,7 +51,6 @@ public class Pizzeria {
 		display = Display.getDefault();
 		createContents();
 		shell.open();
-		p.start();
 		shell.layout();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
@@ -58,22 +58,26 @@ public class Pizzeria {
 			}
 		}
 	}
-
-	public void addList(String s) {
-		display.asyncExec(new Runnable() {			
-			@Override
-			public void run() {				
-				list_2.add(s);
-			}
-		});		
-	}
 	
 	/**
 	 * Create contents of the window.
 	 */
+
+	public void addList(String s) {
+		display.asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				list_2.add(s);
+			}
+		});
+	}
+
 	protected void createContents() {
 		lp = new ListaPizze(this);
-		
+		p = new Pizzaiolo(lp);
+		p.start();
+		p2 = new Pizzaiolo(lp);
+
 		shell = new Shell();
 		shell.setSize(632, 463);
 		shell.setText("SWT Application");
@@ -85,7 +89,6 @@ public class Pizzeria {
 		dialog = new Shell();
 		dialog.setText("Cliente");
 		dialog.setSize(200, 200);
-
 
 		list = new List(shell, SWT.BORDER);
 		list.setBounds(10, 112, 145, 203);
@@ -114,7 +117,10 @@ public class Pizzeria {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
+				messageBox.setMessage("Hei ciao! sono un altro pizzaiolo");
+				messageBox.open();
 				int pizzCur = list.getSelectionIndex();
+				p2.start();
 			}
 		});
 
@@ -138,7 +144,6 @@ public class Pizzeria {
 				c[cur].setPizza(pizze[pizzCur]);
 				c[cur].start();
 				cur++;
-				
 
 			}
 		});
@@ -146,4 +151,5 @@ public class Pizzeria {
 		btnNuovoCliente.setText("Nuovo Cliente");
 
 	}
+
 }
