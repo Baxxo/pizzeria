@@ -29,6 +29,7 @@ public class Pizzeria {
 	Pizzaiolo p2;
 	int pizzCur;
 	Display display;
+	Label forno;
 
 	/**
 	 * Launch the application.
@@ -71,6 +72,16 @@ public class Pizzeria {
 			}
 		});
 	}
+	
+	public void forno(String s){
+		display.asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				forno.setText(s);
+			}
+		});
+	}
 
 	protected void createContents() {
 		lp = new ListaPizze(this);
@@ -91,7 +102,7 @@ public class Pizzeria {
 		dialog.setSize(200, 200);
 
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 112, 145, 203);
+		list.setBounds(10, 112, 145, 75);
 		list.setItems(pizze);
 
 		lblNewLabel = new Label(pizza, SWT.NONE);
@@ -149,7 +160,14 @@ public class Pizzeria {
 		});
 		btnNuovoCliente.setBounds(518, 10, 88, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
+		
+		Label lblForno = new Label(shell, SWT.NONE);
+		lblForno.setAlignment(SWT.CENTER);
+		lblForno.setBounds(10, 215, 145, 15);
+		lblForno.setText("Forno");
+		
+		forno = new Label(shell, SWT.NONE);
+		forno.setBounds(10, 236, 145, 79);
 
 	}
-
 }

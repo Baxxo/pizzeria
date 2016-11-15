@@ -49,6 +49,7 @@ public class ListaPizze {
 			n = 1500;
 			break;
 		}
+		p.forno(pizzedaFare.get(0));
 
 		// fa la pizza ( aspetta tot secondi)
 		try {
@@ -62,6 +63,7 @@ public class ListaPizze {
 		pizzePronte.add(pizzedaFare.get(0));
 		pizzedaFare.remove(0);
 
+		p.forno("");
 		p.addList(pizzePronte.get(index));
 
 		notifyAll();
