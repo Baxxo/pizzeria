@@ -102,7 +102,7 @@ public class Pizzeria {
 		dialog.setSize(200, 200);
 
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 112, 145, 75);
+		list.setBounds(10, 139, 145, 70);
 		list.setItems(pizze);
 
 		lblNewLabel = new Label(pizza, SWT.NONE);
@@ -112,10 +112,10 @@ public class Pizzeria {
 		lblLabelpizza.setBounds(80, 43, 55, 15);
 
 		list_1 = new List(shell, SWT.BORDER);
-		list_1.setBounds(233, 112, 145, 203);
+		list_1.setBounds(231, 139, 145, 203);
 
 		list_2 = new List(shell, SWT.BORDER);
-		list_2.setBounds(461, 112, 145, 203);
+		list_2.setBounds(461, 139, 145, 203);
 
 		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
 		label.setBounds(186, 112, 2, 203);
@@ -158,7 +158,7 @@ public class Pizzeria {
 
 			}
 		});
-		btnNuovoCliente.setBounds(518, 10, 88, 25);
+		btnNuovoCliente.setBounds(10, 51, 109, 25);
 		btnNuovoCliente.setText("Nuovo Cliente");
 		
 		Label lblForno = new Label(shell, SWT.NONE);
@@ -168,6 +168,17 @@ public class Pizzeria {
 		
 		forno = new Label(shell, SWT.NONE);
 		forno.setBounds(10, 236, 145, 79);
+		Label lblMen = new Label(shell, SWT.NONE);
+		lblMen.setBounds(49, 101, 55, 15);
+		lblMen.setText("Men\u00F9");
+		
+		Label lblPizzeDaFare = new Label(shell, SWT.NONE);
+		lblPizzeDaFare.setBounds(265, 101, 72, 15);
+		lblPizzeDaFare.setText("Pizze da fare");
+		
+		Label lblPizzePronte = new Label(shell, SWT.NONE);
+		lblPizzePronte.setBounds(494, 101, 72, 15);
+		lblPizzePronte.setText("Pizze pronte");
 
 	}
 }
