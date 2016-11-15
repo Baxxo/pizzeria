@@ -65,6 +65,7 @@ public class ListaPizze {
 
 		p.forno("");
 		p.addList(pizzePronte.get(index));
+		p.togliPizza();
 
 		notifyAll();
 	}

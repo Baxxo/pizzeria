@@ -82,6 +82,20 @@ public class Pizzeria {
 			}
 		});
 	}
+	
+	public void togliPizza() {
+		display.asyncExec(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				list_1.remove(0);
+				
+			}
+		});
+			
+	}
+	
 
 	protected void createContents() {
 		lp = new ListaPizze(this);
