@@ -23,10 +23,11 @@ public class Pizzeria {
 	public String pizze[] = { "Margherita", "Capricciosa", "4 Formaggi", "Wurstel" };
 	Cliente[] c = new Cliente[100];
 	public int cur = 0;
-	ListaPizze lp = new ListaPizze();
+	ListaPizze lp ;
 	Pizzaiolo p = new Pizzaiolo(lp);
 	Pizzaiolo p2 = new Pizzaiolo(lp);
 	int pizzCur;
+	Display display;
 
 	/**
 	 * Launch the application.
@@ -46,7 +47,7 @@ public class Pizzeria {
 	 * Open the window.
 	 */
 	public void open() {
-		Display display = Display.getDefault();
+		display = Display.getDefault();
 		createContents();
 		shell.open();
 		p.start();
@@ -58,10 +59,21 @@ public class Pizzeria {
 		}
 	}
 
+	public void addList(String s) {
+		display.asyncExec(new Runnable() {			
+			@Override
+			public void run() {				
+				list_2.add(s);
+			}
+		});		
+	}
+	
 	/**
 	 * Create contents of the window.
 	 */
 	protected void createContents() {
+		lp = new ListaPizze(this);
+		
 		shell = new Shell();
 		shell.setSize(632, 463);
 		shell.setText("SWT Application");

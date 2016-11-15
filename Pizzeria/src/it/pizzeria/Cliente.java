@@ -18,7 +18,7 @@ public class Cliente extends Thread {
 	@Override
 	public void run() {
 
-		lp.addPzzafare(pizza);
+		lp.addPizzafare(pizza);
 
 		// System.out.println("pizza: " + lp.pizze[n]);
 		// lp.pizzedaFare.add(lp.pizze[n]);
