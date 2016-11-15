@@ -3,7 +3,7 @@ package it.pizzeria;
 import java.util.ArrayList;
 
 public class ListaPizze {
-	
+
 	Pizzeria p;
 	int n;
 	int index;
@@ -13,12 +13,12 @@ public class ListaPizze {
 	// elenco pizze pronte
 	ArrayList<String> pizzePronte = new ArrayList<String>();
 
-	public ListaPizze(Pizzeria p){
+	public ListaPizze(Pizzeria p) {
 		this.p = p;
 	}
-	
-	public ListaPizze(){
-		
+
+	public ListaPizze() {
+
 	}
 
 	public synchronized void addPizzafare(String pizza) {
@@ -57,15 +57,13 @@ public class ListaPizze {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		// avvisa la lsita pizze che la pizza è pronta
+
 		System.out.println("ho finito 1 una pizza");
-		
 		pizzePronte.add(pizzedaFare.get(0));
 		pizzedaFare.remove(0);
-		
+
 		p.addList(pizzePronte.get(index));
-		
+
 		notifyAll();
 	}
 }
