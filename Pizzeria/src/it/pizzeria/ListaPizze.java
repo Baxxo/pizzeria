@@ -7,6 +7,7 @@ public class ListaPizze {
 	Pizzeria p;
 	int n;
 	int index;
+	audio a = new audio();
 
 	// elenco pizze da fare
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
@@ -50,6 +51,8 @@ public class ListaPizze {
 			break;
 		}
 		p.forno(pizzedaFare.get(0));
+		a.setSound("Fire_Burning");
+		a.suona();
 		if (Thread.currentThread().getName().equals("primo")) {
 			p.updateBar(n);
 		}
@@ -66,6 +69,8 @@ public class ListaPizze {
 		}
 
 		System.out.println("ho finito 1 una pizza");
+		a.setSound("chinese-gong-daniel_simon");
+		a.suona();
 		pizzePronte.add(pizzedaFare.get(0));
 		pizzedaFare.remove(0);
 

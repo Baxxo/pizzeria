@@ -43,6 +43,7 @@ public class Pizzeria {
 	ProgressBar progressBar;
 	JProgressBar pbar;
 	JProgressBar pbar2;
+	audio a = new audio();
 
 	/**
 	 * Launch the application.
@@ -185,6 +186,8 @@ public class Pizzeria {
 				p2.setName("sec");
 				p2.start();
 				btnAvviaPizzeria.setVisible(false);
+				a.setSound("ALARMCLOCK");
+				a.suona();
 			}
 		});
 
@@ -195,7 +198,8 @@ public class Pizzeria {
 		btnNuovoCliente.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-
+				a.setSound("Doorbell");
+				a.suona();
 				c[cur] = new Cliente(lp);
 				pizzCur = list.getSelectionIndex();
 
