@@ -9,7 +9,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
-public class Audio extends JFrame {
+public class Audio {
+
 	public Audio() {
 
 	}
@@ -19,14 +20,13 @@ public class Audio extends JFrame {
 
 	public void setSound(String s) {
 		this.s = s;
-		System.out.println(s);
+		// System.out.println(s);
 	}
 
-	public void stop() {
-		if (clip != null){
-			clip.stop();
-		}
-		System.out.println("stopping");
+	public void ferma() {
+		// System.out.println("stopping");
+		clip.stop();
+		clip.close();
 	}
 
 	public void suona() {

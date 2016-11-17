@@ -41,8 +41,6 @@ public class Pizzeria {
 	Label lblPizzaiolo_1;
 	ProgressBar progressBar_1;
 	ProgressBar progressBar;
-	JProgressBar pbar;
-	JProgressBar pbar2;
 	Audio a = new Audio();
 
 	/**
@@ -114,24 +112,31 @@ public class Pizzeria {
 		display.asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				for (int i = 0; i < n + 1; i++) {
+				for (int i = 0; i < n; i++) {
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					progressBar.setSelection(i);
 				}
 			}
 		});
-		a.stop();
 	}
 
 	public void updateBar2(int n) {
 		display.asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				for (int i = 0; i < n + 1; i++) {
+				for (int i = 0; i < n; i++) {try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 					progressBar_1.setSelection(i);
 				}
 			}
 		});
-		a.stop();
 	}
 
 	protected void createContents() {

@@ -24,7 +24,7 @@ public class ListaPizze {
 
 	public synchronized void addPizzafare(String pizza) {
 		pizzedaFare.add(pizza);
-		System.out.println("pizza: " + pizza);
+		//System.out.println("pizza: " + pizza);
 		notifyAll();
 
 	}
@@ -33,8 +33,8 @@ public class ListaPizze {
 		index = pizzePronte.size();
 		if (pizzedaFare.size() == 0)
 			return;
-		System.out.println("faccio pizza");
-		System.out.println(pizzedaFare.get(0));
+		//System.out.println("faccio pizza");
+		//System.out.println(pizzedaFare.get(0));
 
 		switch (pizzedaFare.get(0)) {
 		case "Margherita":
@@ -68,7 +68,7 @@ public class ListaPizze {
 			e.printStackTrace();
 		}
 
-		System.out.println("ho finito 1 una pizza");
+		a.ferma();
 		a.setSound("chinese-gong-daniel_simon");
 		a.suona();
 		pizzePronte.add(pizzedaFare.get(0));
