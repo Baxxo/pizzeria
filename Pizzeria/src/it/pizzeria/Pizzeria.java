@@ -43,7 +43,7 @@ public class Pizzeria {
 	ProgressBar progressBar;
 	JProgressBar pbar;
 	JProgressBar pbar2;
-	audio a = new audio();
+	Audio a = new Audio();
 
 	/**
 	 * Launch the application.
@@ -119,6 +119,7 @@ public class Pizzeria {
 				}
 			}
 		});
+		a.stop();
 	}
 
 	public void updateBar2(int n) {
@@ -130,6 +131,7 @@ public class Pizzeria {
 				}
 			}
 		});
+		a.stop();
 	}
 
 	protected void createContents() {
@@ -177,6 +179,8 @@ public class Pizzeria {
 		btnAvviaPizzeria.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				a.setSound("ALARMCLOCK");
+				a.suona();
 				lblPizzaiolo_1.setVisible(true);
 				progressBar_1.setVisible(true);
 				MessageBox messageBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
@@ -186,8 +190,6 @@ public class Pizzeria {
 				p2.setName("sec");
 				p2.start();
 				btnAvviaPizzeria.setVisible(false);
-				a.setSound("ALARMCLOCK");
-				a.suona();
 			}
 		});
 

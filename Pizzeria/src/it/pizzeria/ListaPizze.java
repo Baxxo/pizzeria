@@ -7,7 +7,7 @@ public class ListaPizze {
 	Pizzeria p;
 	int n;
 	int index;
-	audio a = new audio();
+	Audio a = new Audio();
 
 	// elenco pizze da fare
 	ArrayList<String> pizzedaFare = new ArrayList<String>();
@@ -73,7 +73,6 @@ public class ListaPizze {
 		a.suona();
 		pizzePronte.add(pizzedaFare.get(0));
 		pizzedaFare.remove(0);
-
 		p.forno("");
 		p.addList(pizzePronte.get(index));
 		p.togliPizza();
