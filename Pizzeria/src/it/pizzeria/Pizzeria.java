@@ -45,7 +45,7 @@ public class Pizzeria {
 	Label forno;
 	Label lblPizza;
 	Label lblF;
-	
+
 	/**
 	 * Launch the application.
 	 * 
@@ -92,7 +92,6 @@ public class Pizzeria {
 		display.asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				lblF.setText(s);
 				switch (s) {
 				case "Margherita":
@@ -111,7 +110,7 @@ public class Pizzeria {
 					lblPizza.setText("");
 					break;
 				}
-					
+
 			}
 		});
 	}
@@ -121,7 +120,6 @@ public class Pizzeria {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				list_1.remove(0);
 
 			}
@@ -296,7 +294,7 @@ public class Pizzeria {
 		lblInsegna.setAlignment(SWT.CENTER);
 		lblInsegna.setImage(SWTResourceManager.getImage(Pizzeria.class, "/it/pizzeria/download.png"));
 		lblInsegna.setBounds(0, 10, 616, 122);
-		
+
 		lblF = new Label(shell, SWT.NONE);
 		lblF.setText("");
 		lblF.setAlignment(SWT.CENTER);

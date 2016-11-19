@@ -20,13 +20,12 @@ public class Audio {
 
 	public void setSound(String s) {
 		this.s = s;
-		// System.out.println(s);
 	}
 
 	public void ferma() {
-		// System.out.println("stopping");
 		clip.stop();
 		clip.close();
+		System.out.println("stopping");
 	}
 
 	public void suona() {
